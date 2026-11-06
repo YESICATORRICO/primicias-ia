@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Primicias IA · Noticias de IA explicadas simple</title>
+<meta name="description" content="Resúmenes diarios en lenguaje claro de las noticias de inteligencia artificial, con fuentes confiables y marcas de verificación.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F6F4; --card: #FFFFFF; --ink: #1F1A17; --ink-2: #2B2521; --ink-3: #4A423C; --muted: #6B625B;
+  --line: #ECE5DD; --accent: #B8501A; --accent-dark: #9A3F12; --accent-light: #D9701F; --bar: #E8833A;
+  --soft: #FDF1E5; --soft-line: #F3D3B3; --soft-ink: #5C2A0E; --chip-line: #9C8C7C;
+  --display: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.6; }
+a { color: var(--accent); } a:hover { color: #8F3D12; }
+button, select { font: inherit; }
+h1, h2, h3 { text-wrap: balance; } p { text-wrap: pretty; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+@media (max-width: 600px) { .wrap { padding-left: 16px; padding-right: 16px; } }
+
+header.top { background: var(--card); border-bottom: 1px solid var(--line); }
+header.top .wrap { padding-top: 18px; padding-bottom: 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-mark { width: 48px; height: 48px; border-radius: 12px; background: #D16A1C; display: flex; align-items: center; justify-content: center; }
+.brand { font-family: var(--display); font-weight: 800; font-size: 28px; letter-spacing: -0.01em; line-height: 1.1; }
+.brand span { color: var(--accent-light); }
+.tagline { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; line-height: 1.1; }
+.updated { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--bar); }
+
+.hero .wrap { padding-top: 56px; padding-bottom: 40px; display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-dark); }
+.hero h1 { margin: 0; font-family: var(--display); font-weight: 800; font-size: clamp(34px, 6vw, 56px); line-height: 1.08; letter-spacing: -0.02em; max-width: 860px; }
+.hero p { margin: 0; font-size: 19px; color: var(--ink-3); max-width: 720px; }
+
+nav.dates { background: var(--card); border-bottom: 1px solid var(--line); }
+nav.dates .wrap { padding-top: 14px; padding-bottom: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.nav-label { font-size: 14px; font-weight: 600; color: var(--muted); margin-right: 4px; }
+.chip { min-height: 44px; padding: 8px 18px; border-radius: 999px; border: 2px solid var(--chip-line); background: var(--card); color: var(--ink); font-size: 15px; font-weight: 600; cursor: pointer; }
+.chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: #fff; }
+.linkbtn { min-height: 44px; padding: 8px 18px; border: 2px solid transparent; background: transparent; color: var(--accent); font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: underline; }
+.catbox { display: flex; align-items: center; gap: 10px; margin-left: auto; flex-wrap: wrap; }
+.catbox label { font-size: 14px; font-weight: 600; color: var(--muted); }
+.catbox select { min-height: 44px; min-width: 240px; padding: 8px 14px; border-radius: 10px; border: 2px solid var(--chip-line); background: var(--card); color: var(--ink); font-size: 15px; font-weight: 500; cursor: pointer; }
+@media (max-width: 600px) { .catbox { margin-left: 0; width: 100%; } .catbox select { flex: 1; min-width: 0; } }
+
+main.wrap { padding-top: 40px; padding-bottom: 24px; display: flex; flex-direction: column; gap: 44px; }
+.view { display: flex; flex-direction: column; gap: 28px; }
+.view-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 14px; }
+.kicker { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.view-head h2 { margin: 4px 0 0; font-family: var(--display); letter-spacing: -0.01em; font-size: clamp(28px, 4vw, 38px); line-height: 1.15; }
+.count { font-size: 15px; color: var(--muted); }
+.note { margin: 0; padding: 14px 18px; background: var(--soft); border: 1px solid var(--soft-line); border-radius: 12px; font-size: 15px; color: var(--soft-ink); }
+
+.facts h3 { margin: 0 0 14px; font-family: var(--display); letter-spacing: -0.01em; font-size: 22px; }
+.grid-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.fact { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+.fact .big { font-family: var(--display); font-weight: 700; font-size: 32px; line-height: 1.2; color: var(--accent); letter-spacing: -0.01em; }
+.fact p { margin: 6px 0 0; font-size: 15px; color: var(--ink-3); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 20px; }
+article.news { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--bar); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+article.news.featured { padding: 32px; }
+@media (max-width: 600px) { article.news, article.news.featured { padding: 22px; } }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); }
+.meta .sep { color: #B5A898; } .meta .date { color: var(--muted); }
+article.news h3 { margin: 0; font-family: var(--display); letter-spacing: -0.01em; font-size: 22px; line-height: 1.25; }
+article.news.featured h3 { font-size: clamp(24px, 3vw, 30px); line-height: 1.2; }
+article.news p { margin: 0; color: var(--ink-2); }
+article.news .why { padding: 12px 16px; background: var(--soft); border-radius: 10px; font-size: 15px; color: var(--soft-ink); }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; font-size: 15px; margin-top: auto; padding-top: 4px; }
+.foot .src { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; color: var(--muted); }
+.foot a { font-weight: 600; }
+
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; font-size: 13px; font-weight: 600; line-height: 1.3; white-space: nowrap; }
+.badge.two { background: var(--accent); border: 1.5px solid var(--accent); color: #fff; }
+.badge.one { background: #fff; border: 1.5px solid var(--accent-dark); color: var(--accent-dark); }
+
+.empty { margin: 0; padding: 14px 18px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; font-size: 16px; color: var(--ink-3); }
+.hist { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+.hist .k { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.hist h3 { margin: 0; font-family: var(--display); letter-spacing: -0.01em; font-size: 21px; }
+.hist p { margin: 0; font-size: 15px; color: var(--ink-3); }
+.hist button { align-self: flex-start; margin-top: 6px; min-height: 44px; padding: 8px 18px; border-radius: 10px; border: 2px solid var(--accent); background: var(--card); color: var(--accent); font-size: 15px; font-weight: 600; cursor: pointer; }
+
+.how { background: var(--soft); border: 1px solid var(--soft-line); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 10px; }
+.how h2 { margin: 0; font-family: var(--display); letter-spacing: -0.01em; font-size: 22px; }
+.how p { margin: 0; color: var(--ink-2); font-size: 16px; }
+.legend { display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; background: var(--card); border: 1px solid var(--soft-line); border-radius: 12px; }
+.legend div { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.legend span.t { flex: 1 1 260px; color: var(--ink-2); font-size: 15px; }
+
+footer.bottom .wrap { padding-top: 24px; padding-bottom: 48px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6"/><path d="M7 9h6" stroke-width="2.6"/><path d="M7 13h10"/><path d="M7 16.5h10"/><path d="M19 2.5c.3 1.9 1.1 2.7 3 3-1.9.3-2.7 1.1-3 3-.3-1.9-1.1-2.7-3-3 1.9-.3 2.7-1.1 3-3z"/></svg>
+      </div>
+      <div>
+        <div class="brand">PRIMIC<span>IA</span>S</div>
+        <div class="tagline">Noticias de IA · Cada día</div>
+      </div>
+    </div>
+    <div class="updated"><span class="dot" aria-hidden="true"></span>Actualizado: <span id="updated"></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Lo que tenés que saber hoy</span>
+    <h1>Lo más importante de la inteligencia artificial, explicado simple</h1>
+    <p>Resúmenes en lenguaje claro de las noticias de IA del día, con el enlace a la nota original de un medio reconocido para leerla completa.</p>
+  </div>
+</section>
+
+<nav class="dates" aria-label="Ediciones por fecha">
+  <div class="wrap">
+    <span class="nav-label">Elegí la fecha:</span>
+    <span id="tabs" style="display: contents"></span>
+    <button type="button" class="linkbtn" id="go-history">Ver historial completo</button>
+    <div class="catbox">
+      <label for="filtro-categoria">Categoría:</label>
+      <select id="filtro-categoria"></select>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div id="view" aria-live="polite"></div>
+
+  <section class="how">
+    <h2>Cómo elegimos las noticias</h2>
+    <p>Cada edición reúne notas publicadas ese día por medios con trayectoria (agencias, diarios y sitios de tecnología reconocidos) o por fuentes oficiales. Los resúmenes son propios: para datos completos, citas y contexto, entrá siempre a la nota original. Cuando una cifra la aporta la propia empresa, lo aclaramos.</p>
+    <p style="margin-top: 6px; font-weight: 600">Cada noticia lleva una marca que indica cuánto está confirmada:</p>
+    <div class="legend">
+      <div><span data-badge="two"></span><span class="t">Otro medio confiable o una fuente oficial contó lo mismo con su propia información, no copiando a la primera nota.</span></div>
+      <div><span data-badge="one"></span><span class="t">La publicó un medio confiable de nuestra lista, pero todavía no encontramos otra cobertura que la confirme. Si aparece, pasa a confirmada.</span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="bottom">
+  <div class="wrap">
+    <span>Primicias IA · Resumen diario de inteligencia artificial</span>
+    <span>Noticias de fuentes confiables</span>
+  </div>
+</footer>
+
+<script src="data/ediciones.js"></script>
+<script>
+(function () {
+  // Categorías centrales (lista fija; cada noticia usa exactamente una en su campo "category")
+  var CATEGORIES = [
+    "Política y regulación", "Economía y finanzas", "Empresas y productos", "Seguridad y privacidad",
+    "Educación", "Ciencia y salud", "Infraestructura y energía", "Trabajo y sociedad", "Entretenimiento y cultura"
+  ];
+  var DATA = window.PRIMICIAS;
+  var EDITIONS = DATA.EDITIONS;
+  var state = { view: 'edition', picked: 0, cat: '' };
+
+  var ICON_TWO = '<svg width="18" height="12" viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 7.5l4.5 4.5 8-10"/><path d="M10.5 11l1 1 8-10"/></svg>';
+  var ICON_ONE = '<svg width="13" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7.5l4 4 6-9"/></svg>';
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function badge(verified) {
+    return verified === false
+      ? '<span class="badge one">' + ICON_ONE + 'Un solo medio</span>'
+      : '<span class="badge two">' + ICON_TWO + 'Confirmada por dos medios</span>';
+  }
+  function plural(n) { return n === 1 ? '1 noticia' : n + ' noticias'; }
+  function safeUrl(u) { return /^https?:\/\//i.test(u || '') ? u : '#'; }
+
+  function card(it, opts) {
+    opts = opts || {};
+    var meta = opts.featured
+      ? '<span>Destacada · ' + esc(it.category) + '</span>'
+      : '<span>' + esc(it.category) + '</span>' + (opts.dateLabel ? '<span class="sep">·</span><span class="date">' + esc(opts.dateLabel) + '</span>' : '');
+    return '<article class="news' + (opts.featured ? ' featured' : '') + '">' +
+      '<div class="meta">' + meta + '</div>' +
+      '<h3>' + esc(it.title) + '</h3>' +
+      '<p>' + esc(it.summary) + '</p>' +
+      '<p class="why"><strong>Por qué importa:</strong> ' + esc(it.why) + '</p>' +
+      '<div class="foot"><div class="src">' + badge(it.verified) + '<span>Fuente: ' + esc(it.source) + '</span></div>' +
+      '<a href="' + esc(safeUrl(it.url)) + '" target="_blank" rel="noopener">Leer la nota original →</a></div>' +
+      '</article>';
+  }
+
+  function renderTabs() {
+    var picked = Math.min(state.picked, EDITIONS.length - 1);
+    var html = '';
+    var shown = EDITIONS.slice(0, 2).map(function (e, i) { return i; });
+    if (state.view === 'edition' && picked >= 2) shown.push(picked);
+    shown.forEach(function (i) {
+      var e = EDITIONS[i];
+      var active = state.view === 'edition' && picked === i;
+      html += '<button type="button" class="chip" data-pick="' + i + '" aria-pressed="' + active + '">' +
+        esc(i === 0 ? 'Hoy · ' + e.shortLabel : e.shortLabel) + '</button>';
+    });
+    document.getElementById('tabs').innerHTML = html;
+  }
+
+  function renderEdition() {
+    var picked = Math.min(state.picked, EDITIONS.length - 1);
+    var e = EDITIONS[picked];
+    var fIdx = e.items.findIndex(function (x) { return x.featured; });
+    var html = '<section class="view">' +
+      '<div class="view-head"><div><span class="kicker">' + (picked === 0 ? 'Edición de hoy' : 'Edición anterior') + '</span>' +
+      '<h2>' + esc(e.longDate) + '</h2></div><span class="count">' + plural(e.items.length) + '</span></div>';
+    if (e.note) html += '<p class="note">' + esc(e.note) + '</p>';
+    if (e.facts && e.facts.length) {
+      html += '<div class="facts"><h3>En 30 segundos</h3><div class="grid-facts">' +
+        e.facts.map(function (f) { return '<div class="fact"><div class="big">' + esc(f.big) + '</div><p>' + esc(f.text) + '</p></div>'; }).join('') +
+        '</div></div>';
+    }
+    if (fIdx >= 0) html += card(e.items[fIdx], { featured: true });
+    html += '<div class="grid">' + e.items.filter(function (_, i) { return i !== fIdx; }).map(function (it) { return card(it); }).join('') + '</div>';
+    return html + '</section>';
+  }
+
+  function allItems() {
+    var out = [];
+    EDITIONS.forEach(function (h) { h.items.forEach(function (it) { out.push({ it: it, dateLabel: h.shortLabel }); }); });
+    return out;
+  }
+
+  function renderCategory() {
+    var items = allItems().filter(function (x) { return x.it.category === state.cat; });
+    var html = '<section class="view"><div class="view-head"><div><span class="kicker">Categoría · todas las fechas</span>' +
+      '<h2>' + esc(state.cat) + '</h2></div><span class="count">' + plural(items.length) + ' en total</span></div>';
+    if (!items.length) html += '<p class="empty">Todavía no hay noticias en esta categoría. Aparecerán acá a medida que se publiquen.</p>';
+    html += '<div class="grid">' + items.map(function (x) { return card(x.it, { dateLabel: x.dateLabel }); }).join('') + '</div>';
+    return html + '</section>';
+  }
+
+  function renderHistory() {
+    var html = '<section class="view"><div class="view-head"><div><h2 style="margin:0">Historial de ediciones</h2>' +
+      '<p style="margin:6px 0 0;color:var(--muted);font-size:16px">Todas las fechas publicadas, de la más reciente a la más antigua.</p></div></div>' +
+      '<div class="grid">';
+    EDITIONS.forEach(function (h, i) {
+      html += '<div class="hist"><span class="k">' + plural(h.items.length) + '</span><h3>' + esc(h.longDate) + '</h3>' +
+        '<p>' + esc(h.items.slice(0, 2).map(function (it) { return it.title; }).join(' · ')) + '</p>' +
+        '<button type="button" data-pick="' + i + '">Ver esta edición</button></div>';
+    });
+    return html + '</div></section>';
+  }
+
+  function renderSelect() {
+    var all = allItems();
+    var sel = document.getElementById('filtro-categoria');
+    sel.innerHTML = '<option value="">Todas las categorías</option>' + CATEGORIES.map(function (c) {
+      var n = all.filter(function (x) { return x.it.category === c; }).length;
+      return '<option value="' + esc(c) + '">' + esc(c) + ' (' + n + ')</option>';
+    }).join('');
+    sel.value = state.view === 'category' ? state.cat : '';
+  }
+
+  function render() {
+    renderTabs();
+    renderSelect();
+    var v = document.getElementById('view');
+    v.innerHTML = state.view === 'category' ? renderCategory() : state.view === 'history' ? renderHistory() : renderEdition();
+  }
+
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest('[data-pick]');
+    if (b) { state = { view: 'edition', picked: +b.getAttribute('data-pick'), cat: '' }; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  });
+  document.getElementById('go-history').addEventListener('click', function () { state = { view: 'history', picked: state.picked, cat: '' }; render(); });
+  document.getElementById('filtro-categoria').addEventListener('change', function (ev) {
+    var v = ev.target.value;
+    state = v ? { view: 'category', picked: state.picked, cat: v } : { view: 'edition', picked: state.picked, cat: '' };
+    render();
+  });
+ // Producto creado por YESICATORRICO - derechos reservados
+
+  document.getElementById('updated').textContent = DATA.UPDATED_AT.split(',')[0];
+  document.querySelectorAll('[data-badge]').forEach(function (el) { el.outerHTML = badge(el.getAttribute('data-badge') === 'one' ? false : true); });
+  render();
+})();
+</script>
+</body>
+</html>
